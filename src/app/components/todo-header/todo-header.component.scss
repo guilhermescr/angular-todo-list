@@ -1,0 +1,45 @@
+@use "../../../assets/mixins/mixins";
+
+:host {
+  @include mixins.flex-center;
+  justify-content: space-between;
+  width: 100%;
+
+  .to-do__header {
+    @include mixins.flex-center;
+    justify-content: space-between;
+    width: 100%;
+
+    h2 {
+      font-size: 22px;
+    }
+
+    #create-task-button {
+      border: 2px solid #853a18;
+      border-radius: 5px;
+      color: #853a18;
+      font-size: 17px;
+      font-weight: bold;
+      padding: 7px 10px;
+      transition: all 0.2s ease-in-out;
+    }
+
+    #create-task-button:hover {
+      background-color: #853a18;
+      color: #fff;
+    }
+
+    #create-task-button:active {
+      opacity: 0.85;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  :host {
+    .to-do__header {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+}

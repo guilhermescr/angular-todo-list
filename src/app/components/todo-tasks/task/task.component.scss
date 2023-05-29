@@ -1,0 +1,39 @@
+@use "../../../../assets/partials/variables";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+
+  .tasks__task {
+    background-color: #8a3a16;
+    border-radius: 5px;
+    box-shadow: 0 0 7px #000000a6;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+    & > div {
+      align-items: center;
+      display: flex;
+      gap: 8px;
+
+      input {
+        transform: scale(1.2);
+      }
+
+      label {
+        color: #fff;
+      }
+
+      .crud-button {
+        transition: all 0.15s ease-in-out;
+      }
+
+      .delete-task-button:hover {
+        fill: variables.$red-color;
+      }
+    }
+  }
+}

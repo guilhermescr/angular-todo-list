@@ -19,3 +19,14 @@ ul,
 ol {
   list-style: none;
 }
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+svg {
+  height: 20px;
+  width: 20px;
+}
