@@ -1,12 +1,10 @@
 <h1>TO-DO List</h1>
 
 <section class="to-do">
-  <app-todo-header
-    [toggleModalVisibilityFunction]="toggleModalVisibility"
-  ></app-todo-header>
+  <app-todo-header></app-todo-header>
 
   <app-todo-tasks></app-todo-tasks>
 </section>
 
-<app-todo-modal [isModalVisible]="isModalOpen" [toggleModalVisibilityFunction]="toggleModalVisibility"></app-todo-modal>
-<app-overlay [isModalVisible]="isModalOpen"></app-overlay>
+<app-todo-modal></app-todo-modal>
+<app-overlay></app-overlay>

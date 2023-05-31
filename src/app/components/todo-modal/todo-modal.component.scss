@@ -62,3 +62,9 @@
     opacity: 0.9;
   }
 }
+
+@media (max-width: 450px) {
+  .todo-modal {
+    max-width: 250px;
+  }
+}

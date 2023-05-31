@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { CrudService } from 'src/app/services/crud.service';
 
 @Component({
@@ -7,15 +7,9 @@ import { CrudService } from 'src/app/services/crud.service';
   styleUrls: ['./todo-header.component.scss'],
 })
 export class TodoHeaderComponent {
-  @Input() toggleModalVisibilityFunction!: () => void;
+  constructor(private crudService: CrudService) {}
 
-  constructor(private crud: CrudService) {}
-
-  toggleModalVisibility(): void {
-    this.toggleModalVisibilityFunction();
-  }
-
-  createTask(): void {
-    this.crud.CreateTask();
+  toggleModal(): void {
+    this.crudService.ToggleModalVisibility();
   }
 }

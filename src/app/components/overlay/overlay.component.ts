@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { CrudService } from 'src/app/services/crud.service';
 
 @Component({
   selector: 'app-overlay',
@@ -6,5 +7,13 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./overlay.component.scss'],
 })
 export class OverlayComponent {
-  @Input() isModalVisible: boolean = false;
+  isModalVisible!: boolean;
+
+  constructor(private crudService: CrudService) {}
+
+  ngOnInit(): void {
+    this.crudService.isModalVisible.subscribe((isVisible) => {
+      this.isModalVisible = isVisible;
+    });
+  }
 }
