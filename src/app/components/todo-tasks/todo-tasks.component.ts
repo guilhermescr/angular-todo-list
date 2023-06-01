@@ -13,6 +13,9 @@ export class TodoTasksComponent {
   constructor(private crudService: CrudService) {}
 
   ngOnInit() {
-    this.tasks = this.crudService.GetTasks();
+    this.crudService.tasks.subscribe((tasks: Task[]) => {
+      this.tasks = tasks;
+    });
+    this.crudService.FetchTasks();
   }
 }

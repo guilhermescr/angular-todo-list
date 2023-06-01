@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Task } from '../task';
 import { CrudService } from 'src/app/services/crud.service';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-task',
@@ -10,12 +11,19 @@ import { CrudService } from 'src/app/services/crud.service';
 export class TaskComponent {
   @Input() tasksList: Task[] = [];
 
-  constructor(private crudService: CrudService) {}
+  constructor(
+    private crudService: CrudService,
+    private modalService: ModalService
+  ) {}
 
-  editTask(titleValue: string): void {
-    this.crudService.ToggleModalVisibility();
-    this.crudService.ToggleModalMode('edit');
-    this.crudService.EditTask(titleValue);
+  openModalToEditTask(task: Task): void {
+    this.modalService.ToggleModalVisibility();
+    this.modalService.ToggleModalMode('edit');
+    this.modalService.SetPreviousTaskTitle(task.title);
+  }
+
+  toggleTaskCheckbox(task: Task): void {
+    this.crudService.ToggleIsDoneProp(task);
   }
 
   deleteTask(titleValue: string): void {

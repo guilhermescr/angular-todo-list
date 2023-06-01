@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CrudService } from 'src/app/services/crud.service';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-todo-header',
@@ -7,9 +7,9 @@ import { CrudService } from 'src/app/services/crud.service';
   styleUrls: ['./todo-header.component.scss'],
 })
 export class TodoHeaderComponent {
-  constructor(private crudService: CrudService) {}
+  constructor(private modalService: ModalService) {}
 
   toggleModal(): void {
-    this.crudService.ToggleModalVisibility();
+    this.modalService.ToggleModalVisibility();
   }
 }
